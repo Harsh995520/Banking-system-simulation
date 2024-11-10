@@ -1,0 +1,245 @@
+//customer.java
+
+package com.bankmanagement.models;
+
+public class Customer {
+    private int customerId;
+    private String name;
+    private String email;
+    private String phoneNumber;
+    private String address;
+
+    // Constructor
+    public Customer(int customerId, String name, String email, String phoneNumber, String address) {
+        this.customerId = customerId;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+    }
+
+    // Getters and Setters
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+}
+
+
+  //account.java
+
+  package com.bankmanagement.models;
+
+import java.math.BigDecimal;
+
+public class Account {
+    private int accountId;
+    private int customerId;
+    private BigDecimal balance;
+    private String accountType; // e.g., savings, checking
+
+    // Constructor
+    public Account(int accountId, int customerId, BigDecimal balance, String accountType) {
+        this.accountId = accountId;
+        this.customerId = customerId;
+        this.balance = balance;
+        this.accountType = accountType;
+    }
+
+    // Getters and Setters
+    public int getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
+    }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+}
+
+
+    //security.java
+
+    package com.bankmanagement.models;
+
+public class Security {
+    private int customerId;
+    private String username;
+    private String passwordHash;
+    private String securityQuestion;
+    private String securityAnswerHash;
+
+    // Constructor
+    public Security(int customerId, String username, String passwordHash, String securityQuestion, String securityAnswerHash) {
+        this.customerId = customerId;
+        this.username = username;
+        this.passwordHash = passwordHash;
+        this.securityQuestion = securityQuestion;
+        this.securityAnswerHash = securityAnswerHash;
+    }
+
+    // Getters and Setters
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPasswordHash() {
+        return passwordHash;
+    }
+
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
+    }
+
+    public String getSecurityQuestion() {
+        return securityQuestion;
+    }
+
+    public void setSecurityQuestion(String securityQuestion) {
+        this.securityQuestion = securityQuestion;
+    }
+
+    public String getSecurityAnswerHash() {
+        return securityAnswerHash;
+    }
+
+    public void setSecurityAnswerHash(String securityAnswerHash) {
+        this.securityAnswerHash = securityAnswerHash;
+    }
+}
+
+
+     //transaction.java
+
+      package com.bankmanagement.models;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+public class Transaction {
+    private int transactionId;
+    private int accountId;
+    private BigDecimal amount;
+    private String transactionType; // e.g., deposit, withdrawal
+    private LocalDateTime transactionDate;
+
+    // Constructor
+    public Transaction(int transactionId, int accountId, BigDecimal amount, String transactionType, LocalDateTime transactionDate) {
+        this.transactionId = transactionId;
+        this.accountId = accountId;
+        this.amount = amount;
+        this.transactionType = transactionType;
+        this.transactionDate = transactionDate;
+    }
+
+    // Getters and Setters
+    public int getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(int transactionId) {
+        this.transactionId = transactionId;
+    }
+
+    public int getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
+    }
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
+    public String getTransactionType() {
+        return transactionType;
+    }
+
+    public void setTransactionType(String transactionType) {
+        this.transactionType = transactionType;
+    }
+
+    public LocalDateTime getTransactionDate() {
+        return transactionDate;
+    }
+
+    public void setTransactionDate(LocalDateTime transactionDate) {
+        this.transactionDate = transactionDate;
+    }
+}
