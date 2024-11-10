@@ -1,0 +1,61 @@
+First we create database banking_system
+then we use database
+finally we create tables
+
+SYNTAX:-
+
+Create Database banking_system;
+use banking_system ;
+
+CREATE TABLE Customers (
+    customer_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    phone VARCHAR(15),
+    address TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Branches (
+    branch_id INT AUTO_INCREMENT PRIMARY KEY,
+    branch_name VARCHAR(100) NOT NULL,
+    branch_address TEXT,
+    branch_phone VARCHAR(15)
+);
+
+CREATE TABLE Accounts (
+    account_id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_id INT NOT NULL,
+    branch_id INT,
+    account_type ENUM('Savings', 'Checking', 'Loan') NOT NULL,
+    balance DECIMAL(15, 2) DEFAULT 0.00,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id) ON DELETE CASCADE,
+    FOREIGN KEY (branch_id) REFERENCES Branches(branch_id) ON DELETE SET NULL
+);
+
+CREATE TABLE Transactions (
+    transaction_id INT AUTO_INCREMENT PRIMARY KEY,
+    account_id INT NOT NULL,
+    transaction_type ENUM('Deposit', 'Withdrawal', 'Transfer') NOT NULL,
+    amount DECIMAL(15, 2) NOT NULL,
+    transaction_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    description TEXT,
+    FOREIGN KEY (account_id) REFERENCES Accounts(account_id) ON DELETE CASCADE
+);
+
+CREATE TABLE Account_Holders (
+    account_holder_id INT AUTO_INCREMENT PRIMARY KEY,
+    account_id INT NOT NULL,
+    customer_id INT NOT NULL,
+    FOREIGN KEY (account_id) REFERENCES Accounts(account_id) ON DELETE CASCADE,
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id) ON DELETE CASCADE
+);
+
+SELECT t.transaction_id, t.transaction_type, t.amount, t.transaction_date, a.account_type
+FROM Transactions t
+JOIN Accounts a ON t.account_id = a.account_id
+JOIN Customers c ON a.customer_id = c.customer_id
+
+
