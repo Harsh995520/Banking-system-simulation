@@ -1,0 +1,45 @@
+First we create new maven Project.
+Configure the Maven Project (GroupId: Enter a group ID for your project (e.g., com.bankmanagement),ArtifactId: Enter an artifact ID for your project (e.g., banking-management-system),Version: You can leave the default version or specify one, like 1.0-SNAPSHOT).
+
+Specify the Project Location.
+Now Maven file created with a pom.xml file at the root of the project. Open this file to add dependencies and configure plugins.
+
+Add Dependencies to pom.xml,
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.bankmanagement</groupId>
+    <artifactId>banking-management-system</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!-- MySQL Connector Dependency -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>
+        </dependency>
+
+        <!-- JUnit for Testing -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.9.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Add more dependencies as needed -->
+    </dependencies>
+</project>
+
+
+Then reload Maven project,
+Setup the project structure,
+Then we test the project setup.
