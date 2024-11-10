@@ -1,0 +1,52 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class CustomerDAO {
+    public void addCustomer(String name, String email, double balance) throws SQLException {
+        String query = "INSERT INTO customers (name, email, balance) VALUES (?, ?, ?)";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, name);
+            stmt.setString(2, email);
+            stmt.setDouble(3, balance);
+            stmt.executeUpdate();
+        }
+    }
+
+    public void getCustomer(int id) throws SQLException {
+        String query = "SELECT * FROM customers WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                System.out.println("Name: " + rs.getString("name"));
+                System.out.println("Email: " + rs.getString("email"));
+                System.out.println("Balance: " + rs.getDouble("balance"));
+            }
+        }
+    }
+
+    public void updateCustomer(int id, String name, String email, double balance) throws SQLException {
+        String query = "UPDATE customers SET name = ?, email = ?, balance = ? WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, name);
+            stmt.setString(2, email);
+            stmt.setDouble(3, balance);
+            stmt.setInt(4, id);
+            stmt.executeUpdate();
+        }
+    }
+
+    public void deleteCustomer(int id) throws SQLException {
+        String query = "DELETE FROM customers WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        }
+    }
+}
