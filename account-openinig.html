@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Account - Banking Management System</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/validation.js" defer></script>
+</head>
+<body>
+<header>
+    <h1 class="text-center my-4">Banking Management System</h1>
+</header>
+<main>
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form th:action="@{/open-account}" method="post" class="card p-4 shadow" onsubmit="return validateAccountOpeningForm()">
+                    <h2 class="text-center mb-4">Open a New Account</h2>
+                    
+                    <!-- Personal Information -->
+                    <fieldset class="mb-4">
+                        <legend>Personal Information</legend>
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <textarea id="address" name="address" class="form-control" rows="3" required></textarea>
+                        </div>
+                    </fieldset>
+
+                    <!-- Account Details -->
+                    <fieldset class="mb-4">
+                        <legend>Account Details</legend>
+                        <div class="mb-3">
+                            <label for="accountType" class="form-label">Account Type</label>
+                            <select id="accountType" name="accountType" class="form-select" required>
+                                <option value="" disabled selected>-- Select Account Type --</option>
+                                <option value="savings">Savings</option>
+                                <option value="current">Current</option>
+                                <option value="fixed">Fixed Deposit</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="initialDeposit" class="form-label">Initial Deposit (in USD)</label>
+                            <input type="number" id="initialDeposit" name="initialDeposit" class="form-control" min="100" step="0.01" required>
+                        </div>
+                    </fieldset>
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success w-100">Open Account</button>
+                    </div>
+                    <p class="text-center mt-3">
+                        Already have an account? <a href="file:///C:/SolidWorks_Flexnet_Server/banking%20system/login.html">Login here</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="text-center mt-4">
+    <p>&copy; 2024 Banking Management System</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Banking Management System</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header>
+    <h1 class="text-center my-4">Banking Management System</h1>
+</header>
+<main>
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form th:action="@{/login}" method="post" class="card p-4 shadow">
+                    <h2 class="text-center mb-4">Login</h2>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" id="username" name="username" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                    <p class="text-center mt-3">
+                       
+                        Don't have an account? <a href="file:///C:/SolidWorks_Flexnet_Server/banking%20system/Registration.html">Register here</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="text-center mt-4">
+    
+</footer>
+</body>
+</html>
+
+

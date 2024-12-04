@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Banking Management System</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header>
+    <h1 class="text-center my-4">Welcome, <span th:text="${user.username}"></span></h1>
+</header>
+<main>
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow p-4">
+                    <h2 class="text-center mb-4">Your Profile</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <strong>Username:</strong> <span th:text="${user.username}"></span>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Email:</strong> <span th:text="${user.email}"></span>
+                        </li>
+                    </ul>
+                    <div class="mt-4 text-center">
+                        <a href="file:///C:/SolidWorks_Flexnet_Server/banking%20system/login.html" class="btn btn-danger">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="text-center mt-4">
+    <p>&copy; 2024 Banking Management System</p>
+</footer>
+</body>
+</html>
