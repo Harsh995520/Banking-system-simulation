@@ -1,0 +1,15 @@
+{
+    "workbench.colorTheme": "Default Light Modern",
+    "redhat.telemetry.enabled": true,
+    "launch": {
+        "configurations": [
+
+        ]
+    },
+    "python.defaultInterpreterPath": "C:\\Users\\harsh\\AppData\\Local\\Microsoft\\WindowsApps\\python3.11.exe",
+    "jdk.jdkhome": "c:\\Users\\harsh\\Downloads\\Oracle_JDK-22",
+    "editor.codeActionsOnSave": {
+        
+        
+    }
+}
