@@ -1,0 +1,60 @@
+package com.bankingsystem.dao;
+
+import com.bankingsystem.models.BankAccount;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.List;
+
+import static org.junit.Assert.*;
+
+public class BankAccountDAOTest {
+    private BankAccountDAO bankAccountDAO;
+
+    @Before
+    public void setUp() {
+        bankAccountDAO = new BankAccountDAO();
+    }
+
+    @Test
+    public void testSave() {
+        BankAccount account = new BankAccount(1, "John Doe", 1000.0);
+        BankAccount result = bankAccountDAO.save(account);
+
+        assertNotNull(result);
+        assertEquals("John Doe", result.getAccountHolderName());
+        assertEquals(1000.0, result.getBalance(), 0);
+    }
+
+    @Test
+    public void testFindAll() {
+        bankAccountDAO.save(new BankAccount(1, "John Doe", 1000.0));
+        bankAccountDAO.save(new BankAccount(2, "Jane Doe", 2000.0));
+
+        List<BankAccount> accounts = bankAccountDAO.findAll();
+
+        assertNotNull(accounts);
+        assertEquals(2, accounts.size());
+    }
+
+    @Test
+    public void testFindById() {
+        BankAccount account = new BankAccount(1, "John Doe", 1000.0);
+        bankAccountDAO.save(account);
+
+        BankAccount result = bankAccountDAO.findById(1);
+
+        assertNotNull(result);
+        assertEquals("John Doe", result.getAccountHolderName());
+    }
+
+    @Test
+    public void testDelete() {
+        bankAccountDAO.save(new BankAccount(1, "John Doe", 1000.0));
+
+        boolean result = bankAccountDAO.delete(1);
+
+        assertTrue(result);
+        assertNull(bankAccountDAO.findById(1));
+    }
+}
